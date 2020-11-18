@@ -1,0 +1,66 @@
+// Visualizer
+
+.root {
+    -fx-font-size: 14px;
+    -fx-font-family: "Century Gothic";
+}
+
+#tab-panes {
+
+}
+
+#tab-panes .tab-pane {
+
+}
+
+#canvas {
+
+}
+
+#title {
+
+}
+
+#title .label {
+    -fx-font-size: 35px;
+}
+
+#information .text-area {
+    -fx-wrap-text: true;
+}
+
+// Linked List Class
+
+// Queue Class
+
+// Stack Class
+
+// Array Class
+
+// ALIGNMENT
+
+#rectangle {
+    -fx-fill: #FFFFFF;
+    -fx-stroke: #000000;
+}
+
+#circle {
+    -fx-fill: #FFFFFF;
+    -fx-stroke: #000000;
+}
+
+// Crossover
+
+#together-nodes {
+    -fx-spacing: 5px;
+}
+
+#main-pane {
+    -fx-padding: 10px;
+    -fx-spacing: 10px;
+}
+
+#grid-pane {
+    -fx-vgap: 10px;
+    -fx-hgap: 10px;
+}
