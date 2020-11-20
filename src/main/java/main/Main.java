@@ -9,10 +9,6 @@ import java.util.Queue;
 
 public class Main {
     public void start() {
-        Stack<Integer> stack = new Stack<>();
-
-        Queue<Integer> queue = new LinkedList<>();
-
 
     }
 }

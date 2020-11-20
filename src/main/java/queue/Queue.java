@@ -1,37 +1,34 @@
 package queue;
 
-import linkedList.DoublyLinkedList;
+import array.Array;
 
-// Implemented using linkedlist
+// Implemented using dynamic array
 public class Queue<T> {
-    DoublyLinkedList<T> linkedList = new DoublyLinkedList<>();
+    private final Array<T> array;
+    private int front;
+    private int back;
 
-    public Queue() { }
+    public Queue() {
+        array = new Array<>();
+        back = 0;
+        front = 0;
+    }
+
+    public T enqueue(T value) {
+        array.add(value);
+        front =+ 1;
+        return value;
+    }
+
+    public T dequeue() {
+        return array.removeAt(back++);
+    }
 
     public T peek() {
-        if (isEmpty()) {
-            throw new RuntimeException("Queue Empty");
-        }
-        return linkedList.peekFirst();
-    }
-
-    public T poll() {
-        if (isEmpty()) {
-            throw new RuntimeException("Queue Empty");
-        }
-
-        return linkedList.removeFirst();
-    }
-
-    public void offer(T value) {
-        linkedList.addLast(value);
-    }
-
-    public int size() {
-        return linkedList.size();
+        return array.get(front);
     }
 
     public boolean isEmpty() {
-        return size() == 0;
+        return array.isEmpty();
     }
 }

@@ -50,7 +50,7 @@ public class Visualizer extends Application {
                 createCenterBorderPane(),
                 createBottomScrollPane(mainScene));
 
-        mainScene.getStylesheets().add("C:\\Users\\arvin\\IdeaProjects\\DataStructure\\src\\main\\java\\visualizer\\css\\Design.css");
+        mainScene.getStylesheets().add("Design.css");
 
         return mainScene;
     }
