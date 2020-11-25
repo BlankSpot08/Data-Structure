@@ -9,6 +9,24 @@ import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
 
 public class Node<T> {
+    private Rectangle rectangle;
+    private Label valueLabel;
+    private Line pointer;
+
+    private Pane pane;
+    private double x;
+    private double y;
+    private float width;
+    private float height;
+
+    private StringProperty value = new SimpleStringProperty("0");
+
+    private boolean isRoot;
+
+    private Node<T> next;
+    private Node<T> previous;
+    private T data;
+
     public Node(ScrollPane canvas) {
         isRoot = getPrevious() == null;
 
@@ -50,6 +68,7 @@ public class Node<T> {
 
     public void showArrow(Pane containers, double x, double y) {
         Pane test = new Pane();
+
         pointer = new Line(x + width + 10,
                 y + height / 2,
                 x + width * 2 - 10,
@@ -74,23 +93,6 @@ public class Node<T> {
 
         containers.getChildren().addAll(rectangle, valueLabel);
     }
-
-    private Rectangle rectangle;
-    private Label valueLabel;
-    private Line pointer;
-
-    private double x;
-    private double y;
-    private float width;
-    private float height;
-
-    private StringProperty value = new SimpleStringProperty("0");
-
-    private boolean isRoot;
-
-    private Node<T> next;
-    private Node<T> previous;
-    private T data;
 
     public double getX() {
         return x;

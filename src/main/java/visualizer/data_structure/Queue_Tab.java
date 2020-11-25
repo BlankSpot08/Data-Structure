@@ -17,6 +17,7 @@ public class Queue_Tab {
     }
 
     public Pane containers;
+
     private ScrollPane canvas;
     private GridPane gridPane;
     private HBox offerHBox;
@@ -49,7 +50,6 @@ public class Queue_Tab {
         offerButton.setOnAction(e -> {
             offer(Integer.parseInt(valueTextField.getText()));
         });
-
 
         offerHBox.getChildren().addAll(valueTextField, offerButton);
 

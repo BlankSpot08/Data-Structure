@@ -7,6 +7,13 @@ import java.util.Arrays;
 
 @SuppressWarnings("unchecked")
 public class LinkedList<T> {
+    private final ScrollPane canvas;
+    private final Pane container;
+
+    private Node<T> head;
+    private Node<T> tail;
+    private int length;
+
     public LinkedList(Pane container, ScrollPane canvas) {
         head = null;
         tail = null;
@@ -15,13 +22,6 @@ public class LinkedList<T> {
         this.container = container;
         this.canvas = canvas;
     }
-
-    private final ScrollPane canvas;
-    private final Pane container;
-
-    private Node<T> head;
-    private Node<T> tail;
-    private int length;
 
     // This method Appends the specified element to the end of this list.
     public void add(T data) {
@@ -120,7 +120,7 @@ public class LinkedList<T> {
                     tail.getY());
 
             node.show(container,
-                tail.getX() + tail.getWidth() * 2,
+                    tail.getX() + tail.getWidth() * 2,
                 tail.getY());
 
             tail.setNext(node);

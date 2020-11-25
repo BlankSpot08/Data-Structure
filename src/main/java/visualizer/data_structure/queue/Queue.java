@@ -6,7 +6,7 @@ import visualizer.data_structure.linked_list.LinkedList;
 
 // Implemented using linkedlist
 public class Queue<T> {
-    LinkedList<T> linkedList;
+    private final LinkedList<T> linkedList;
 
     public Queue(Pane containers, ScrollPane canvas) {
         linkedList = new LinkedList<>(containers, canvas);

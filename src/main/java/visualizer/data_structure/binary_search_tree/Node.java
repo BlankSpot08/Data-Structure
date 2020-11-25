@@ -10,6 +10,24 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 
 public class Node<T> {
+    private Node<T> left;
+    private Node<T> right;
+    private Node<T> parent;
+    private T data;
+
+    private Circle circle;
+    private Label valueLabel;
+    private Line leftPointer;
+    private Line rightPointer;
+    private Pane design;
+    private StringProperty value;
+
+    private DoubleProperty x;
+    private DoubleProperty y;
+
+    private double width = 25;
+    private double height = 25;
+
     public Node(Pane container, T data, double x, double y) {
         this.data = data;
 
@@ -88,27 +106,7 @@ public class Node<T> {
         return design;
     }
 
-    private Node<T> left;
-    private Node<T> right;
-    private Node<T> parent;
-    private final T data;
-
-    private Circle circle;
-    private Label valueLabel;
-    private Line leftPointer;
-    private Line rightPointer;
-
-    private Pane design;
-
-    private DoubleProperty x;
-    private DoubleProperty y;
-
-    private double width = 25;
-    private double height = 25;
-
-    private StringProperty value;
-
-    public double getX() {
+    public double getX()  {
         return x.get();
     }
 
