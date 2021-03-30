@@ -23,8 +23,8 @@ public class BinarySearchTree<T extends Comparable<T>> {
         return node;
     }
 
-    public void remove(T data) {
-        root = remove(root, data);
+    public Node<T> remove(T data) {
+        return remove(root, data);
     }
 
     private Node<T> remove(Node<T> node, T data) {
@@ -42,16 +42,22 @@ public class BinarySearchTree<T extends Comparable<T>> {
                     return null;
                 }
 
-                else if (node.getLeft() == null) {
+                else if (node.getLeft() == null && node.getRight() != null) {
                     return node.getRight();
                 }
 
-                else if (node.getRight() == null) {
+                else if (node.getRight() == null && node.getLeft() != null) {
                     return node.getLeft();
                 }
 
                 else if (node.getLeft() != null && node.getRight() != null) {
-                    return minimum();
+                    Node<T> temp = minimum(node);
+
+                    remove(node, temp.getData());
+
+                    node.setData(temp.getData());
+
+                    return node;
                 }
             }
         }

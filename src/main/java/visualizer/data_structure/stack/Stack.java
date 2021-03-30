@@ -9,13 +9,13 @@ import java.util.EmptyStackException;
 
 // Implemented using linkedlist
 public class Stack<T> {
-    LinkedList<T> linkedList;
+    final LinkedList<T> linkedList;
 
 //    public Stack(T initialValue) {
 //        linkedList.addFirst(initialValue);
 //    }
 
-    Pane containers;
+    final Pane containers;
 
     public Stack(Pane containers, ScrollPane canvas) {
         linkedList = new LinkedList<>(containers, canvas);

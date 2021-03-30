@@ -5,11 +5,11 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
-import visualizer.data_structure.binary_search_tree.BinarySearchTreeTest;
+import visualizer.data_structure.binary_search_tree.BinarySearchTree;
 
 public class BinarySearchTree_Tab {
 
-    private BinarySearchTreeTest<Integer> binarySearchTree;
+    private BinarySearchTree<Integer> binarySearchTree;
 
     private VBox mainPane;
     private GridPane gridPane;
@@ -75,7 +75,7 @@ public class BinarySearchTree_Tab {
     }
 
     private void createBinarySearchTree() {
-        binarySearchTree = new BinarySearchTreeTest<>(containers, canvas);
+        binarySearchTree = new BinarySearchTree<>(containers, canvas);
         containers.getChildren().clear();
     }
 
