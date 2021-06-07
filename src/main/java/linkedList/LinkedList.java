@@ -1,7 +1,12 @@
 package linkedList;
 
+import util.List;
+
+import java.util.Arrays;
+import java.util.Collection;
+
 @SuppressWarnings("unchecked")
-public class LinkedList <T> {
+public class LinkedList <T> implements List<T> {
     public LinkedList() {
         head = null;
         tail = null;
@@ -13,11 +18,13 @@ public class LinkedList <T> {
     private int length;
 
     // This method Appends the specified element to the end of this list.
+    @Override
     public void add(T data) {
         addLast(data);
     }
 
     // This method Inserts the specified element at the beginning of this list.
+    @Override
     public void addFirst(T data) {
         Node<T> node = new Node<>();
         node.setData(data);
@@ -36,6 +43,7 @@ public class LinkedList <T> {
     }
 
     // This method Inserts the specified element at the specified position in this list.
+    @Override
     public void add(int index, T data) {
         Node<T> node = new Node<>();
         node.setData(data);
@@ -65,6 +73,7 @@ public class LinkedList <T> {
     }
 
     // This method Appends the specified element to the end of this list.
+    @Override
     public void addLast(T data) {
         Node<T> node = new Node<>();
         node.setData(data);
@@ -88,18 +97,22 @@ public class LinkedList <T> {
      This method Appends all of the elements in the specified collection to the end of this list,
      in the order that they are returned by the specified collection’s iterator.
     */
-    public void addAll(LinkedList<T> linkedList) {
-        Node<T> temp = linkedList.head;
+    @Override
+    public void addAll(Collection<? extends List<T>> list) {
+//        Node<T> temp = linkedList.head;
 
-        while (temp.getNext() != null) {
-            this.add(temp.getData());
-            temp = temp.getNext();
-        }
+        System.out.println(Arrays.toString(list.toArray()));;
 
-        this.add(temp.getData());
+//        while (temp.getNext() != null) {
+//            this.add(temp.getData());
+//            temp = temp.getNext();
+//        }
+
+//        this.add(temp.getData());
     }
 
     // This method removes and returns the first element from this list.
+    @Override
     public T removeFirst() {
         T data = head.getData();
         head = head.getNext();
@@ -114,6 +127,7 @@ public class LinkedList <T> {
     }
 
     // This method removes the element at the specified position in this list.
+    @Override
     public void remove(int index) {
         if (index == length - 1) {
             removeLast();
@@ -140,6 +154,7 @@ public class LinkedList <T> {
     }
 
     // This method removes and returns the last element from this list.
+    @Override
     public T removeLast() {
         Node<T> node = new Node<>();
         Node<T> temp = head;
@@ -167,21 +182,25 @@ public class LinkedList <T> {
     }
 
     // This method retrieves and removes the head (first element) of this list.
+    @Override
     public T remove() {
         return removeFirst();
     }
 
     // This method removes the first occurrence of the specified element from this list, if it is present.
+    @Override
     public void remove(T data) {
         remove(indexOf(data));
     }
 
     // This method removes the first occurrence of the specified element in this list (when traversing the list from head to tail).
+    @Override
     public void removeFirstOccurrence(T data) {
         remove(indexOf(data));
     }
 
     // This method returns an array containing all of the elements in this list in proper sequence (from first to last element).
+    @Override
     public T[] toArray() {
         Node<T> temp = head;
         T[] tempArray = (T[]) new Object[length];
@@ -191,15 +210,19 @@ public class LinkedList <T> {
             temp = temp.getNext();
         }
 
+        System.out.println(Arrays.toString(tempArray));
+
         return tempArray;
     }
 
     // This method returns the number of elements in this list.
+    @Override
     public int size() {
         return length;
     }
 
     // This method replaces the element at the specified position in this list with the specified element.
+    @Override
     public void set(int index, T data) {
         Node<T> temp = head;
 
@@ -216,6 +239,7 @@ public class LinkedList <T> {
      This method removes the last occurrence of the specified element in this list
      (when traversing the list from head to tail).
     */
+    @Override
     public void removeLastOccurrence(T data) {
         remove(lastIndexOf(data));
     }

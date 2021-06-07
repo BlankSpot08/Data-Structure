@@ -2,10 +2,11 @@ package hashTable.seperateChaining;
 
 import hashTable.Entry;
 import linkedList.LinkedList;
+import util.Map;
 
 import java.util.Arrays;
 
-public class HashTableSeperateChaining<K, V> {
+public class HashTableSeperateChaining<K, V> implements Map<K, V> {
     private static final int DEFAULT_CAPACITY = 3;
     private static final double DEFAULT_LOAD_FACTOR = 0.75;
 
@@ -36,10 +37,12 @@ public class HashTableSeperateChaining<K, V> {
         table = new LinkedList[this.capacity];
     }
 
+    @Override
     public int size() {
         return size;
     }
 
+    @Override
     public boolean isEmpty() {
         return size == 0;
     }
@@ -48,29 +51,35 @@ public class HashTableSeperateChaining<K, V> {
         return (keyHash & 0x7FFFFFFF) % capacity;
     }
 
+    @Override
     public void clear() {
         Arrays.fill(table, null);
         size = 0;
     }
 
+    @Override
     public boolean containsKey(K key) {
         return hasKey(key);
     }
 
+    @Override
     public boolean hasKey(K key) {
         int bucketIndex = normalizeIndex(key.hashCode());
 
         return bucketSeekEntry(bucketIndex, key) !=  null;
     }
 
+    @Override
     public V add(K key, V value) {
         return insert(key, value);
     }
 
+    @Override
     public V put(K key, V value) {
         return insert(key, value);
     }
 
+    @Override
     public V insert(K key, V value) {
         if (key == null) {
             throw new IllegalArgumentException("Null key");

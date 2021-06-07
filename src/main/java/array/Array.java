@@ -1,7 +1,7 @@
 package array;
 
 @SuppressWarnings("unchecked")
-public class Array <T> {
+public class Array<T> {
     private T[] container;
     private int length;
     private int capacity;
